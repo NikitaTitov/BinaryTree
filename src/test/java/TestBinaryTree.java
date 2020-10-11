@@ -1,5 +1,8 @@
 import model.BinaryTree;
 import org.junit.Test;
+import utils.ArraySortUtil;
+
+import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
@@ -68,5 +71,33 @@ public class TestBinaryTree {
         firstTree.walkFromRootThoughtAllTraverseTypes();
         System.out.println("String binary tree \n");
         secondTree.walkFromRootThoughtAllTraverseTypes();
+    }
+
+    @Test
+    public void mergeSortArray() {
+        int[] testArray = {4, 5, 6, 9, 3, 2, 0, 5};
+        ArraySortUtil.mergeSort(testArray, 0, 7);
+        assertEquals(Arrays.toString(testArray), Arrays.toString(new int[]{0, 2, 3, 4, 5, 5, 6, 9}));
+    }
+
+    @Test
+    public void quickSortArray() {
+        int[] testArray = {4, 5, 6, 9, 3, 2, 0, 5};
+        ArraySortUtil.quickSort2(testArray, 0, 7);
+        assertEquals(Arrays.toString(testArray), Arrays.toString(new int[]{0, 2, 3, 4, 5, 5, 6, 9}));
+    }
+
+    @Test
+    public void countSortArray() {
+        int[] testArray = {2, 0, 9};
+        int[] result = ArraySortUtil.countingSort(testArray, 9);
+        assertEquals(Arrays.toString(result), Arrays.toString(new int[]{0, 2, 9}));
+    }
+
+    @Test
+    public void radixSortArray() {
+        int[] testArray = {170, 45, 75, 90, 802, 24, 2, 66};
+        ArraySortUtil.radixSort(testArray);
+        assertEquals(Arrays.toString(testArray), Arrays.toString(new int[]{2, 24, 45, 66, 75, 90, 170, 802}));
     }
 }
